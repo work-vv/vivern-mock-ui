@@ -1,0 +1,11 @@
+@import "../styles/variables";
+
+.header {
+  background: $color-secondary;
+  padding: 2rem 0;
+}
+
+.header a {
+  padding: 0 2rem;
+  color: $color-initial;
+}
