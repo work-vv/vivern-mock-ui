@@ -1,0 +1,11 @@
+@import "../assets/styles/variables";
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid $color-bg-footer;
+  background-color: $color-bg-footer;
+}

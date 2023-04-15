@@ -1,3 +1,18 @@
+@import "assets/styles/variables";
+
 .main {
-  padding: 2rem;
+  min-height: calc(100vh - 8.1rem);
+  padding: 0 3%;
+  background-color: $color-bg;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 128rem;
+  width: 100%;
+}
+
+.container--flex {
+  display: flex;
+  flex-wrap: wrap;
 }

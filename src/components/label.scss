@@ -1,0 +1,34 @@
+@import "../assets/styles/variables";
+
+.label {
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+  padding: 0.1rem 0.7rem;
+  border-radius: $control-radius;
+}
+
+.label--success {
+  background-color: $color-green;
+  color: $color-initial;
+}
+
+.label--warning {
+  background-color: $color-orange;
+  color: $color-initial;
+}
+
+.label--info {
+  background-color: $color-blue;
+  color: $color-initial;
+}
+
+.label--danger {
+  background-color: $color-red;
+  color: $color-initial;
+}
+
+.label--inverse {
+  background-color: $color-grey;
+  color: $color-initial;
+}
+

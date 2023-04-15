@@ -13,6 +13,7 @@ type IProject = {
   id: string
   title: string
   pathPrefix: string
+  description?: string
   projectVariables: string[]
   operations: IOperation[]
 }
@@ -46,14 +47,14 @@ type IHttpRequestTask = ITask & {
 }
 
 type IOperationRequest = {
-  operationId: string
+  id: string
   route: string
   method: HttpRequestMethods
   parses: IParse[]
 }
 
 type IOperationResponse = {
-  operationId: string
+  id: string
   body: {
     type: string
     value: string
