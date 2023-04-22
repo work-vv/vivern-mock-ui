@@ -1,0 +1,69 @@
+{
+  "name": "Test",
+  "pathPrefix": "/test",
+  "projectVariables": [
+    {
+      "host": "https://webhook-host.com"
+    }
+  ],
+  "operations": [
+    {
+      "request": {
+        "route": "/accounts",
+        "method": "post",
+        "parses": [
+          {
+            "name": "accountId",
+            "path": "body.accountId"
+          },
+          {
+            "name": "accountId",
+            "path": "body.accountName"
+          }
+        ]
+      },
+      "requestTaskGroups": [],
+      "responses": [
+        {
+          "body": {
+            "type": "template",
+            "value": "{{stringify account}}"
+          },
+          "status": 200
+        }
+      ],
+      "operationTaskGroups": []
+    },
+    {
+      "request": {
+        "route": "/accounts/{accountId}",
+        "method": "get",
+        "parses": [
+          {
+            "name": "debtorIban",
+            "path": "query.iban",
+            "sample": {
+              "type": "faker.datatype.uuid",
+              "args": []
+            }
+          },
+          {
+            "name": "outTransactionId",
+            "path": "path.accountId"
+          }
+        ]
+      },
+      "requestTaskGroups": [],
+      "responses": [
+        {
+          "body": {
+            "type": "template",
+            "value": "{{debtorIban}}"
+          },
+          "status": 200
+        }
+      ],
+      "operationTaskGroups": []
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import {normalize, denormalize, schema} from 'normalizr';
-import {projectEntity} from "../store/slices/projectSlice";
-import data from '../../test.json';
+import data from '../test.json';
 
 export const parseEntity = new schema.Entity('parses', {});
 export const requestEntity = new schema.Entity('requests', {
@@ -12,6 +11,10 @@ export const responseEntity = new schema.Entity('responses', {
 export const operationEntity = new schema.Entity('operations', {
     request: requestEntity,
     responses: [responseEntity]
+});
+
+export const projectEntity = new schema.Entity('projects', {
+    operations: [operationEntity],
 });
 
 
