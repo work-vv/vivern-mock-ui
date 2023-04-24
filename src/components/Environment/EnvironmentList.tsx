@@ -1,9 +1,8 @@
-import {normalizeConfig} from "../../services/configNormalizer";
+import {normalizeConfig} from "../../services/normalizer";
 import Environment from './Environment';
 
 const EnvironmentList = () => {
   const environments: any[] = [];
-  normalizeConfig();
 
   return (<div>
     Project Envs
