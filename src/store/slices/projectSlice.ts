@@ -35,14 +35,19 @@ export const projectSlice = createSlice({
     updateProject: projectsAdapter.updateOne,
     removeProject: projectsAdapter.removeOne,
   },
-  extraReducers: {
-    // @ts-ignore
-    [fetchProject.fulfilled]: (state, action) => {
-      projectsAdapter.upsertMany(
-        state,
-        action.payload.projects
-      );
-    },
+  extraReducers: (builder) => {
+    builder.addCase(
+        // @ts-ignore
+        fetchProject.fulfilled,
+        (state, action) => {
+          // @ts-ignore
+          projectsAdapter.upsertMany(
+              state,
+              // @ts-ignore
+              action.payload.projects
+          );
+        }
+    );
   },
 });
 

@@ -22,7 +22,7 @@ const transformConfig = (item: any, toId = true) => {
       clonedItem.forEach((inner: any) => transform(inner))
     } else if (clonedItem instanceof Object) {
       if (toId) {
-        clonedItem.id = uuidv4()
+        clonedItem.id = clonedItem.id || uuidv4()
       } else {
         delete (clonedItem.id)
       }

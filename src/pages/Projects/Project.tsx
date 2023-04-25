@@ -9,10 +9,7 @@ import {addResponse, createDefaultResponse} from "../../store/slices/responseSli
 import {addRequest, createDefaultRequest} from "../../store/slices/requestSlice";
 import "./project.scss";
 import Label from "../../components/Label";
-import Title from "../../components/Title";
 import Input from "../../components/Form/Input";
-import Environment from "../../components/Environment/Environment";
-import EnvironmentList from "../../components/Environment/EnvironmentList";
 
 const Project = () => {
   const dispatch = useAppDispatch();
@@ -45,7 +42,6 @@ const Project = () => {
   const showOperation = selectedOperation ? <Operation operation={selectedOperation}/> : <div className="ba">Select operation</div>
 
   return (<section className="page container container--flex">
-    <EnvironmentList />
     <div className="operations">
       <Input inputName="filter" inputValue=""
              inputPlaceholder="Filter"

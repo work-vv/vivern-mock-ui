@@ -24,6 +24,9 @@
     &--textarea {
       min-height: 20rem;
     }
+    &--file {
+      display: none;
+    }
     &:focus {
       border-color: $color-blue;
       outline: 0;

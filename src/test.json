@@ -1,5 +1,6 @@
 {
-  "name": "Test",
+  "title": "Test title",
+  "description": "Test description",
   "pathPrefix": "/test",
   "projectVariables": [
     {
