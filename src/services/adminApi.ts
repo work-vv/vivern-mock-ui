@@ -1,6 +1,6 @@
 import project from '../test.json'
 
-const getProject = async (id: string) => {
+const getProject = async () => {
   return project;
 };
 

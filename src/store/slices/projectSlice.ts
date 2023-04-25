@@ -2,37 +2,27 @@ import {
   createSlice,
   createEntityAdapter,
   createAsyncThunk,
-  createSelector,
-  EntityState,
 } from '@reduxjs/toolkit';
 import {getProject} from '../../services/adminApi';
-import {normalize, schema} from 'normalizr';
 import {RootState} from "../index";
+import {normalizeConfig} from "../../services/normalizer";
 
-export const parseEntity = new schema.Entity('parses', {});
-export const requestEntity = new schema.Entity('requests', {
-  parses: parseEntity,
-});
-export const responseEntity = new schema.Entity('responses', {
-  parses: parseEntity,
-});
-export const operationEntity = new schema.Entity('operations', {
-  request: requestEntity,
-  responses: [responseEntity]
-});
-
-type Project = { id: string; title: string, description: string, pathPrefix: string, projectVariables: string[], operations: string[]}
-export const projectEntity = new schema.Entity<Project>('projects', {
-  operations: [operationEntity],
-});
+type Project = {
+  id: string;
+  title: string,
+  description: string,
+  pathPrefix: string,
+  projectVariables: string[],
+  operations: string[]
+}
 
 const projectsAdapter = createEntityAdapter<Project>();
 
 export const fetchProject = createAsyncThunk(
   'projects/fetchProject',
-  async (id: string) => {
-    const data = await getProject(id);
-    const normalized = normalize(data, projectEntity);
+  async () => {
+    const data = await getProject();
+    const normalized = normalizeConfig(data);
     return normalized.entities;
   }
 );
@@ -64,8 +54,14 @@ export const {
   selectTotal: selectTotalProjects,
 } = projectsAdapter.getSelectors<RootState>((state) => state.projects);
 
-// const selectProjectById1 = (id: string) => (state: { projects: EntityState<Project>; operations: EntityState<unknown>; }, id: string) => selectById(state, id);
-
+// @ts-ignore
+export const selectAllEntities = ({projects, operations, requests, responses, parses}) => ({
+  projects: projects.entities,
+  operations: operations.entities,
+  requests: requests.entities,
+  responses: responses.entities,
+  parses: parses.entities
+});
 
 export const {addProject, updateProject, removeProject} = projectSlice.actions;
 
