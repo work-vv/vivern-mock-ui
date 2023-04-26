@@ -1,17 +1,26 @@
-@import "../assets/styles/variables";
+@import '../assets/styles/variables';
 
 .button {
+  cursor: pointer;
+  align-self: center;
+  color: $white;
+  background: $grey-900;
+  border: transparent;
+  border-radius: $borderRadius;
+  letter-spacing: $letterSpacing;
+  padding: 0.375rem 0.75rem;
+  box-shadow: $shadow-1;
+  transition: $transition;
+  margin: 0px 2rem;
   display: inline-block;
   padding: 0.5rem 1rem;
-  border-radius: $control-radius;
-  border-color: $color-primary;
-  color: $color-initial;
-  background-color: $color-primary;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  box-shadow: $control-shadow;
+  min-width: 125px;
+  background: #227ecb;
+  font-family: inherit;
   &:hover {
     outline: 0;
     opacity: 0.9;

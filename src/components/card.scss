@@ -1,12 +1,14 @@
-@import "../assets/styles/variables";
+@import '../assets/styles/variables';
 
 .card {
-  height: 20rem;
+  min-height: 17rem;
+  max-height: 20px;
   width: 300px;
   padding: 1rem;
-  margin:  1rem;
+  margin: 1rem;
   cursor: pointer;
   background-color: $color-initial;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+  overflow: auto;
 }

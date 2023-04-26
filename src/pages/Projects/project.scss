@@ -1,15 +1,27 @@
-@import "../../assets/styles/variables";
+@import '../../assets/styles/variables';
 
-.page {  display: grid;
+.page {
+  display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;
   gap: 0px 1rem;
   grid-auto-flow: row;
-  grid-template-areas:
-    ". .";
+  grid-template-areas: '. .';
 }
-
-
+.operations {
+  width: 200px;
+}
+.operations input {
+  width: 160px;
+}
+.operations__button {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  margin: 0;
+  padding: 0;
+  margin-right: 10px;
+}
 .operation {
   padding: 0.5rem;
   display: flex;
@@ -20,4 +32,19 @@
 
 .operation:hover {
   background-color: $color-grey;
+}
+.create-project__form {
+  display: flex;
+  flex-direction: column;
+  width: $fluid-width;
+  max-width: $fixed-width;
+  background: $white;
+  border-radius: $borderRadius;
+  box-shadow: $shadow-1;
+  padding: 0.5rem 2.5rem 1.5rem 2.5rem;
+  margin: 1.5rem auto;
+  transition: $transition;
+}
+.project-list__button {
+  margin: 0;
 }
