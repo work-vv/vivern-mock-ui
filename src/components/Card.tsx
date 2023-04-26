@@ -1,17 +1,19 @@
-import './card.scss'
-import React from "react";
-import {Link} from "react-router-dom";
+import './card.scss';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 type CardProps = {
-  title: string,
-  description?: string,
-}
-const Card = ({title, description}: CardProps) => {
-  return <div className="card">
-    <div className="card__info">
-      <h3 className="card__title">{title}</h3>
-      <p>{description}</p>
+  title: string;
+  description?: string;
+};
+const Card = ({ title, description }: CardProps) => {
+  return (
+    <div className="card">
+      <div className="card__info">
+        <h3 className="card__title">{title}</h3>
+        <p>{description}</p>
+      </div>
     </div>
-  </div>
-}
-export default Card
+  );
+};
+export default Card;
