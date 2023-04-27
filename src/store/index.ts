@@ -1,10 +1,10 @@
-import {configureStore} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 
-import {projectSlice} from './slices/projectSlice';
-import operationSlice from "./slices/operationSlice";
-import requestSlice from "./slices/requestSlice";
-import responseSlice from "./slices/responseSlice";
-import parseSlice from "./slices/parseSlice";
+import { projectSlice } from './slices/projectSlice';
+import operationSlice from './slices/operationSlice';
+import requestSlice from './slices/requestSlice';
+import responseSlice from './slices/responseSlice';
+import parseSlice from './slices/parseSlice';
 
 export const store = configureStore({
   reducer: {

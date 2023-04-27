@@ -1,21 +1,18 @@
-import {
-  createSlice,
-  createEntityAdapter,
-} from '@reduxjs/toolkit';
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
-import {fetchProject} from './projectSlice';
-import {RootState} from "../index";
-import {selectRequestById} from "./requestSlice";
+import { fetchProject } from './projectSlice';
+import { RootState } from '../index';
+import { selectRequestById } from './requestSlice';
 
 const operationsAdapter = createEntityAdapter();
 
-export const createOperation = (requestId: string, responseId: string) =>  ({
+export const createOperation = (requestId: string, responseId: string) => ({
   id: uuidv4(),
   request: requestId,
   requestTaskGroups: [],
   responses: [responseId],
   operationTaskGroups: [],
-})
+});
 export const operationSlice = createSlice({
   name: 'operations',
   initialState: operationsAdapter.getInitialState(),
@@ -46,13 +43,14 @@ export const {
   selectTotal: selectTotalOperations,
 } = operationsAdapter.getSelectors<RootState>((state) => state.operations);
 
-export const selectAllOperationsWithRequests = (state: any, ids: any[]) => ids.map(id => {
-  const operation = selectOperationById(state, id);
-  // @ts-ignore
-  const {route, method}  = selectRequestById(state, operation.request);
-  // @ts-ignore
-  return {route, method, ...operation}
-});
+export const selectAllOperationsWithRequests = (state: any, ids: any[]) =>
+  ids.map((id) => {
+    const operation = selectOperationById(state, id);
+    // @ts-ignore
+    const { route, method } = selectRequestById(state, operation.request);
+    // @ts-ignore
+    return { route, method, ...operation };
+  });
 
-export const {addOperation, removeOperation} = operationSlice.actions;
+export const { addOperation, removeOperation } = operationSlice.actions;
 export default operationSlice;

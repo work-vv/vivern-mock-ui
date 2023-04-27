@@ -1,12 +1,18 @@
 @import "../../assets/styles/variables";
 
-.page {  display: grid;
+.project {
+  display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;
-  gap: 0px 1rem;
+  gap: 0 1rem;
   grid-auto-flow: row;
   grid-template-areas:
     ". .";
+}
+
+.project-form {
+  max-width: 32rem;
+  margin: auto;
 }
 
 

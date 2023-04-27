@@ -1,21 +1,18 @@
-import {
-  createSlice,
-  createEntityAdapter,
-} from '@reduxjs/toolkit';
-import {fetchProject} from './projectSlice';
-import {RootState} from "../index";
-import {v4 as uuidv4} from "uuid";
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { fetchProject } from './projectSlice';
+import { RootState } from '../index';
+import { v4 as uuidv4 } from 'uuid';
 
-type Parse =  { id: string; variable: string, value: string | null, sample: { value: string; args: string; } | null}
+type Parse = { id: string; variable: string; value: string | null; sample: { value: string; args: string } | null };
 
 const parsesAdapter = createEntityAdapter<Parse>();
 
 export const createDefaultParse = () => ({
   id: uuidv4(),
-  variable: "test",
+  variable: 'test',
   value: null,
-  sample: null
-})
+  sample: null,
+});
 
 export const parseSlice = createSlice({
   name: 'parses',
@@ -49,5 +46,5 @@ export const {
   // @ts-ignore
 } = parsesAdapter.getSelectors<RootState>((state) => state.parses);
 
-export const {addParse, updateParse, removeParse} = parseSlice.actions;
+export const { addParse, updateParse, removeParse } = parseSlice.actions;
 export default parseSlice;

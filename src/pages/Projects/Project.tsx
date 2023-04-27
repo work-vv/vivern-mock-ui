@@ -10,7 +10,6 @@ import { addRequest, createDefaultRequest } from '../../store/slices/requestSlic
 import './project.scss';
 import Label from '../../components/Label';
 import Input from '../../components/Form/Input';
-import EnvironmentList from '../../components/Environment/EnvironmentList';
 
 const Project = () => {
   const dispatch = useAppDispatch();
@@ -47,8 +46,7 @@ const Project = () => {
   );
 
   return (
-    <section className="page container container--flex">
-      <EnvironmentList />
+    <section className="project">
       <div className="operations">
         <Input inputName="filter" inputValue="" inputPlaceholder="Filter" handleInputChange={() => null} />
         <Button title={'+'} handleButtonClick={handleCreateOperation} />

@@ -7,12 +7,15 @@
 }
 
 .container {
-  margin: 0 auto;
-  max-width: 128rem;
   width: 100%;
+  max-width: 128rem;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
 
-.container--flex {
+.container-flex {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 0;
 }
