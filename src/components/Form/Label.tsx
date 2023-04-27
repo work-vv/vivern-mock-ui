@@ -1,10 +1,7 @@
-import React from "react";
+import React from 'react';
 
 const Label = () => {
-
-  return (
-    <p></p>
-  );
-}
+  return <p></p>;
+};
 
 export default Label;
