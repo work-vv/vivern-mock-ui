@@ -1,13 +1,10 @@
-import {
-  createSlice,
-  createEntityAdapter,
-} from '@reduxjs/toolkit';
-import {v4 as uuidv4} from 'uuid';
-import {fetchProject} from './projectSlice';
-import {RootState} from "../index";
-import {HttpRequestMethods} from "../../types";
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { v4 as uuidv4 } from 'uuid';
+import { fetchProject } from './projectSlice';
+import { RootState } from '../index';
+import { HttpRequestMethods } from '../../types';
 
-type Request = { id: string; method: string, route: string, parses: string[]}
+type Request = { id: string; method: string; route: string; parses: string[] };
 const requestsAdapter = createEntityAdapter<Request>();
 
 export const createDefaultRequest = () => ({
@@ -15,7 +12,7 @@ export const createDefaultRequest = () => ({
   route: '/',
   method: HttpRequestMethods.GET,
   parses: [],
-})
+});
 export const requestSlice = createSlice({
   name: 'requests',
   initialState: requestsAdapter.getInitialState(),
@@ -47,10 +44,11 @@ export const {
   selectTotal: selectTotalRequests,
 } = requestsAdapter.getSelectors<RootState>((state) => state.requests);
 
-export const selectAllRequestsById = (state: any, ids: any[]) => ids.map(({id, operationId}) => {
-  const request = selectRequestById(state, id);
-  // @ts-ignore
-  return {...request, operationId}
-});
-export const {addRequest, updateRequest, removeRequest} = requestSlice.actions;
+export const selectAllRequestsById = (state: any, ids: any[]) =>
+  ids.map(({ id, operationId }) => {
+    const request = selectRequestById(state, id);
+    // @ts-ignore
+    return { ...request, operationId };
+  });
+export const { addRequest, updateRequest, removeRequest } = requestSlice.actions;
 export default requestSlice;

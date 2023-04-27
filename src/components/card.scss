@@ -2,11 +2,15 @@
 
 .card {
   height: 20rem;
-  width: 300px;
+  width: 20rem;
   padding: 1rem;
-  margin:  1rem;
   cursor: pointer;
   background-color: $color-initial;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
+}
+
+.card__info {
+  overflow: auto;
+  height: 100%;
 }

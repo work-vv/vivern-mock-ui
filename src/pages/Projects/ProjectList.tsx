@@ -8,11 +8,17 @@ const ProjectList = () => {
   const projects = useAppSelector(selectAllProjects);
 
   return (
-    <section className="project-list">
-      <Link to="/projects/create">
-        <Button title="New project" handleButtonClick={() => true} />
-      </Link>
-      <div className="container container--flex">
+    <section>
+      <div className="container-flex">
+        <Link to="/projects/create">
+          <Button title="New project" handleButtonClick={() => true} />
+        </Link>
+        <Button title="Import from file" handleButtonClick={() => true} />
+        <Link to="/projects/import">
+          <Button title="Import from server" handleButtonClick={() => true} />
+        </Link>
+      </div>
+      <div className="container-flex">
         {projects.map(({ id, title, description }) => (
           <div key={id}>
             <div>

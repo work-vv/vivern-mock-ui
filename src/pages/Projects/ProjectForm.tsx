@@ -40,7 +40,7 @@ const ProjectForm = () => {
   return (
     <section className="container">
       <Title title="Create a Project" />
-      <form>
+      <form className="project-form form">
         <div className="form__group">
           <Input
             inputName="title"

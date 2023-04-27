@@ -1,23 +1,20 @@
-import {
-  createSlice,
-  createEntityAdapter,
-} from '@reduxjs/toolkit';
-import {fetchProject} from './projectSlice';
-import {RootState} from "../index";
-import {v4 as uuidv4} from "uuid";
+import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { fetchProject } from './projectSlice';
+import { RootState } from '../index';
+import { v4 as uuidv4 } from 'uuid';
 
-type Response = { id: string; status: number, body: { type: string; value: string; } | null}
+type Response = { id: string; status: number; body: { type: string; value: string } | null };
 
 const responsesAdapter = createEntityAdapter<Response>();
 
 export const createDefaultResponse = () => ({
   id: uuidv4(),
   body: {
-    type: "template",
-    value: "OK"
+    type: 'template',
+    value: 'OK',
   },
-  status: 200
-})
+  status: 200,
+});
 
 export const responseSlice = createSlice({
   name: 'responses',
@@ -50,5 +47,5 @@ export const {
   selectTotal: selectTotalResponses,
 } = responsesAdapter.getSelectors<RootState>((state) => state.responses);
 
-export const {addResponse, updateResponse, removeResponse} = responseSlice.actions;
+export const { addResponse, updateResponse, removeResponse } = responseSlice.actions;
 export default responseSlice;

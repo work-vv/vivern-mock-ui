@@ -1,78 +1,77 @@
 type ISample = {
-  type: string
-  args: never[]
-}
+  type: string;
+  args: never[];
+};
 
 type IParse = {
-  name: string
-  path: string | null
-  sample: ISample
-}
+  name: string;
+  path: string | null;
+  sample: ISample;
+};
 
 type IProject = {
-  id: string
-  title: string
-  pathPrefix: string
-  description?: string
-  projectVariables: string[]
-  operations: IOperation[]
-}
+  id: string;
+  title: string;
+  pathPrefix: string;
+  description?: string;
+  projectVariables: string[];
+  operations: IOperation[];
+};
 
 type IOperation = {
-
-  id: string
-  projectId: string
-  request: IOperationRequest
-  requestTaskGroups: ITaskGroup[]
-  responses: IOperationResponse[]
-  operationTaskGroups: ITaskGroup[]
-}
+  id: string;
+  projectId: string;
+  request: IOperationRequest;
+  requestTaskGroups: ITaskGroup[];
+  responses: IOperationResponse[];
+  operationTaskGroups: ITaskGroup[];
+};
 
 type ITaskGroup = {
-  operationId: string
-  type: string
-  tasks: ITask[]
-}
+  operationId: string;
+  type: string;
+  tasks: ITask[];
+};
 
 type ITask = {
-  type: string
-  parses: IParse[]
-}
+  type: string;
+  parses: IParse[];
+};
 
 type IHttpRequestTask = ITask & {
-  host: string
-  route: string
-  method: string
-  body: string
-}
+  host: string;
+  route: string;
+  method: string;
+  body: string;
+};
 
 type IOperationRequest = {
-  id: string
-  route: string
-  method: HttpRequestMethods
-  parses: IParse[]
-}
+  id: string;
+  route: string;
+  method: HttpRequestMethods;
+  parses: IParse[];
+};
 
 type IOperationResponse = {
-  id: string
+  id: string;
   body: {
-    type: string
-    value: string
-  }
-  status: number
-}
+    type: string;
+    value: string;
+  };
+  status: number;
+};
 
 enum HttpRequestMethods {
   'GET' = 'GET',
-  'POST' = "POST",
-  'PUT' = "PUT",
-  'PATCH' = "PATCH",
-  'DELETE' = 'DELETE'
+  'POST' = 'POST',
+  'PUT' = 'PUT',
+  'PATCH' = 'PATCH',
+  'DELETE' = 'DELETE',
 }
 
 enum ResponseBodyTypes {
   'INLINE' = 'INLINE',
-  'FILE' = 'FILE'
+  'FILE' = 'FILE',
 }
 
 export type {
@@ -85,6 +84,6 @@ export type {
   ITaskGroup,
   ITask,
   IHttpRequestTask,
-}
+};
 
-export {HttpRequestMethods, ResponseBodyTypes}
+export { HttpRequestMethods, ResponseBodyTypes };
