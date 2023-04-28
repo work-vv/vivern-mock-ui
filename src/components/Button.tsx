@@ -3,11 +3,12 @@ import './button.scss';
 
 export type ButtonProps = {
   title: string;
+  classname?: string;
   handleButtonClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
-const Button = ({ title, handleButtonClick }: ButtonProps) => {
+const Button = ({ title, classname, handleButtonClick }: ButtonProps) => {
   return (
-    <button type="button" onClick={handleButtonClick} className="button">
+    <button type="button" onClick={handleButtonClick} className={`button ${classname}`}>
       {title}
     </button>
   );

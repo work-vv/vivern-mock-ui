@@ -1,11 +1,16 @@
-import { selectAllProjects } from '../../store/slices/projectSlice';
-import { useAppSelector } from '../../hooks';
+import { fetchProject, selectAllProjects } from '../../store/slices/projectSlice';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import Card from '../../components/Card';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 
 const ProjectList = () => {
   const projects = useAppSelector(selectAllProjects);
+  const dispatch = useAppDispatch();
+
+  const click = () => {
+    const project = dispatch(fetchProject());
+  };
 
   return (
     <section>
